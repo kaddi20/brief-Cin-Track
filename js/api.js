@@ -2,10 +2,13 @@ const cinetrackData = "https://raw.githubusercontent.com/ouchad97/cinetrack-api/
 export async function lireFilms(){
     try{
         const reponse=await fetch(cinetrackData);
-        const films =await reponse.json();
-        console.log(films);
-        return films;
+        if(!reponse.ok){
+            throw new Error("Erreur de chargement");
+        }
+    const films =await reponse.json();
+    return films; 
     }catch(error){
         console.log(error);
+        throw error;
     }
 }
