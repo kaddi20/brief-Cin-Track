@@ -4,6 +4,7 @@ const modal=document.querySelector("#modal");
 const close=document.querySelector("#fermer");
 const details=document.querySelector("#details");
 const search=document.querySelector("#search");
+const filtre=document.querySelectorAll(".filtre-btn");
 let movies=[];
 
 function createCard(film){
@@ -65,3 +66,19 @@ function recherche(){
     grid.innerHTML=resultat.map(createCard).join("");
 }
 search.addEventListener("input",recherche);
+
+function filtrer(type){
+    let resulta = movies.filter(film=>{
+        if(type==="tous") return true;
+        if(type==="films") return film.type==="movie";
+        if(type==="series") return film.type==="series";
+    });
+grid.innerHTML=resulta.map(createCard).join("");    
+}
+filtre.forEach(btn => {
+    btn.addEventListener("click",function(){
+        filtrer(this.dataset.filtre)
+    });
+});
+
+
