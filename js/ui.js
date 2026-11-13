@@ -3,6 +3,7 @@ const grid=document.querySelector("#films-liste");
 const modal=document.querySelector("#modal");
 const close=document.querySelector("#fermer");
 const details=document.querySelector("#details");
+const search=document.querySelector("#search");
 let movies=[];
 
 function createCard(film){
@@ -55,3 +56,12 @@ function fermeModal(){
     modal.classList.remove("flex");
 }
 close.addEventListener("click",fermeModal);
+
+function recherche(){
+    const val=search.value.toLowerCase();
+    const resultat=movies.filter(film=>
+        film.title.toLowerCase().includes(val)
+    );
+    grid.innerHTML=resultat.map(createCard).join("");
+}
+search.addEventListener("input",recherche);
