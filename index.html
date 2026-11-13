@@ -29,12 +29,14 @@
             <h2>Favorites</h2>
         </aside>    
     </div>
-    <div id="modal" class="hidden flex justify-center items-center">
-        <div class="bg-white p-6 rounded-lg w-90 ">
-            <button id="fermer">X</button>
-            <div id="details"></div>
+<div id="modal" class="fixed hidden inset-0 z-50 flex items-center justify-center bg-black/80 "> 
+    <div class="bg-gray-800 border border-gray-700 rounded-xl w-full max-w-lg p-6 relative shadow-2xl text-white">
+        <button id="fermer"class="float-right text-white">X</button>
+            <div id="details" class="flex gap-4 items-center"></div>
         </div>
     </div>
+    </div>
+            
     
      <script type="module" src="./js/main-cinetrack.js"></script>
     
